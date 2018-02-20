@@ -24,14 +24,7 @@ public class CreateBankDialog extends JFrame {
 	
 	
 	
-	public void put(int key, BankAccount value){
-		int hash = (key%TABLE_SIZE);
 
-		while(table.containsKey(key)){
-			hash = hash+1;
-		}
-		table.put(hash, value);
-	}
 	
 	
 	

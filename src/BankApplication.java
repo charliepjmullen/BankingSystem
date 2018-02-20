@@ -38,6 +38,9 @@ public class BankApplication extends JFrame {
 	
 	int currentItem = 0;
 	
+	private static RandomAccessFile input;
+	private static RandomAccessFile output;
+	
 	
 	boolean openValues;
 	
@@ -107,7 +110,7 @@ public class BankApplication extends JFrame {
 		JPanel buttonPanel = new JPanel(new GridLayout(1, 4));
 
 		nextItemButton = new JButton(new ImageIcon("next.png"));
-		prevItemButton = new JButton(new ImageIcon("previous.png"));
+		prevItemButton = new JButton(new ImageIcon("prev.png"));
 		firstItemButton = new JButton(new ImageIcon("first.png"));
 		lastItemButton = new JButton(new ImageIcon("last.png"));
 		
@@ -474,7 +477,6 @@ public class BankApplication extends JFrame {
 						String toDeposit = JOptionPane.showInputDialog("Account found, Enter Amount to Deposit: ");
 						entry.getValue().setBalance(entry.getValue().getBalance() + Double.parseDouble(toDeposit));
 						displayDetails(entry.getKey());
-						//balanceTextField.setText(entry.getValue().getBalance()+"");
 					}
 				}
 				if (!found)
@@ -484,8 +486,10 @@ public class BankApplication extends JFrame {
 		
 		withdraw.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+				
+				
 				String accNum = JOptionPane.showInputDialog("Account number to withdraw from: ");
-				String toWithdraw = JOptionPane.showInputDialog("Account found, Enter Amount to Withdraw: ");
+				
 				
 				
 				for (Map.Entry<Integer, BankAccount> entry : table.entrySet()) {
@@ -493,7 +497,7 @@ public class BankApplication extends JFrame {
 
 					if(accNum.equals(entry.getValue().getAccountNumber().trim())){
 						
-
+						String toWithdraw = JOptionPane.showInputDialog("Account found, Enter Amount to Withdraw: ");
 						
 						if(entry.getValue().getAccountType().trim().equals("Current")){
 							if(Double.parseDouble(toWithdraw) > entry.getValue().getBalance() + entry.getValue().getOverdraft())
@@ -511,7 +515,7 @@ public class BankApplication extends JFrame {
 							else
 								JOptionPane.showMessageDialog(null, "Insufficient funds.");
 						}
-					}					
+					}else JOptionPane.showMessageDialog(null, "Account not found");					
 				}
 			}
 		});
@@ -555,8 +559,7 @@ public class BankApplication extends JFrame {
 	
 	}
 	
-	private static RandomAccessFile input;
-	private static RandomAccessFile output;
+
 
 	
 	public static void openFileRead()
@@ -687,7 +690,7 @@ public static void saveToFile(){
 	
 		RandomAccessBankAccount record = new RandomAccessBankAccount();
 	
-	
+	      //Scanner input = new Scanner( System.in );
 
 	      
 	      for (Map.Entry<Integer, BankAccount> entry : table.entrySet()) {
@@ -714,7 +717,9 @@ public static void saveToFile(){
 	}
 
 	public static void writeFile(){
+		//openFileWrite();
 		saveToFile();
+		//addRecords();
 		closeFile();
 	}
 	

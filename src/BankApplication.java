@@ -687,7 +687,7 @@ public static void saveToFile(){
 	
 		RandomAccessBankAccount record = new RandomAccessBankAccount();
 	
-	      //Scanner input = new Scanner( System.in );
+	
 
 	      
 	      for (Map.Entry<Integer, BankAccount> entry : table.entrySet()) {

@@ -66,7 +66,7 @@ public class CreateBankDialog extends JFrame {
 		 final JComboBox<String> comboBox = new JComboBox<>(comboTypes);
 				
 		accountNumberLabel = new JLabel("Account Number: ");
-		accountNumberTextField = new JTextField(15);
+		accountNumberTextField = new JTextField(8);
 		accountNumberTextField.setEditable(true);
 		
 		dataPanel.add(accountNumberLabel, "growx, pushx");
@@ -138,7 +138,7 @@ public class CreateBankDialog extends JFrame {
 
 				
 		
-				if (accountNumber != null && accountNumber.length()==8 && surname != null && firstName != null && accountType != null) {
+				if (accountNumber != null && accountNumber.length()==8 && !surname.isEmpty()  && !firstName.isEmpty()  && accountType != null) {
 					try {
 
 						boolean accNumTaken=false;

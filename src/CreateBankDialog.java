@@ -24,7 +24,14 @@ public class CreateBankDialog extends JFrame {
 	
 	
 	
+	public void put(int key, BankAccount value){
+		int hash = (key%TABLE_SIZE);
 
+		while(table.containsKey(key)){
+			hash = hash+1;
+		}
+		table.put(hash, value);
+	}
 	
 	
 	
@@ -136,12 +143,13 @@ public class CreateBankDialog extends JFrame {
 
 						boolean accNumTaken=false;
 							
-							int randNumber = rand.nextInt(24) + 1;
-						
+							//int randNumber = rand.nextInt(24) + 1;
+						int accountID = 1;
 						 for (Map.Entry<Integer, BankAccount> entry : table.entrySet()) {
 							 
-							 while(randNumber == entry.getValue().getAccountID()){
-								 randNumber = rand.nextInt(24)+1;
+							 while(accountID == entry.getValue().getAccountID()){
+								 //randNumber = rand.nextInt(24)+1;
+								 accountID++;
 							 }		 
 						 }
 					 
@@ -155,7 +163,7 @@ public class CreateBankDialog extends JFrame {
 						if(!accNumTaken){
 						
 						
-							BankAccount account = new BankAccount(randNumber, accountNumber, surname, firstName, accountType, 0.0, 0.0);
+							BankAccount account = new BankAccount(accountID, accountNumber, surname, firstName, accountType, 0.0, 0.0);
 						
 							
 							int key = Integer.parseInt(account.getAccountNumber());

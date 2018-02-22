@@ -5,7 +5,6 @@ public class RandomAccessBankAccount extends BankAccount {
 	public static final int SIZE = 140;
 	
 	public RandomAccessBankAccount(){
-		this(0, "", "", "", "", 0.0, 0.0);
 	}
 	
 	public RandomAccessBankAccount(int accountID, String accountNumber, String firstName, String surname, String accountType,

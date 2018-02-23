@@ -1,11 +1,15 @@
 import java.io.IOException;
 import java.util.Map;
 
+import javax.swing.JOptionPane;
+
 public class SaveFile extends BankFileFunctions{
 
 	public static void saveToFile(){
 		
-		
+		if(table.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "No records in the System");
+		}else {
 		RandomAccessBankAccount record = new RandomAccessBankAccount();
 	
 	      
@@ -31,6 +35,6 @@ public class SaveFile extends BankFileFunctions{
 	}
 	
 
-	
+	}
 	
 }

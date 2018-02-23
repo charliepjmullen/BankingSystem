@@ -136,19 +136,17 @@ public class CreateBankDialog extends JFrame {
 				String accountType = comboBox.getSelectedItem().toString();
 				
 
-				
+				int accountNumber2 = Integer.parseInt(accountNumber);
 		
-				if (accountNumber != null && accountNumber.length()==8 && !surname.isEmpty()  && !firstName.isEmpty()  && accountType != null) {
+				if (accountNumber != null && accountNumber.length()==8 && !surname.isEmpty()  && !firstName.isEmpty()  && accountType != null && accountNumber2 >0) {
 					try {
 
 						boolean accNumTaken=false;
-							
-							//int randNumber = rand.nextInt(24) + 1;
+
 						int accountID = 1;
 						 for (Map.Entry<Integer, BankAccount> entry : table.entrySet()) {
 							 
 							 while(accountID == entry.getValue().getAccountID()){
-								 //randNumber = rand.nextInt(24)+1;
 								 accountID++;
 							 }		 
 						 }

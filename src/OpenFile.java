@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 public class OpenFile extends BankFileFunctions {
 
 	public static  void openFileRead() {
+		
 
 		table.clear();
 

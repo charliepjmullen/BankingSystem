@@ -38,14 +38,21 @@ public static void ListAll() {
 	
    
 	public static void getFirst() {
+		if(table.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "No records in the System");
+		}else {
 			currentItem=0;
 			while(!table.containsKey(currentItem)){
 				currentItem++;
 			}
 			Display.displayDetails(currentItem);
+		}
 	}
 	
 	public static void goToLast() {
+		if(table.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "No records in the System");
+		}else {
 		currentItem =29;
 		
 		while(!table.containsKey(currentItem)){
@@ -54,9 +61,13 @@ public static void ListAll() {
 		}
 		
 		Display.displayDetails(currentItem);
+		}
 	}
 	
 	public static void goToPrevious() {
+		if(table.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "No records in the System");
+		}else {
 		ArrayList<Integer> keyList = new ArrayList<Integer>();
 		int i=0;
 
@@ -76,9 +87,13 @@ public static void ListAll() {
 			}
 		}
 		Display.displayDetails(currentItem);	
+		}
 	}
 	
 	public static void goToNext() {
+		if(table.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "No records in the System");
+		}else {
 		ArrayList<Integer> keyList = new ArrayList<Integer>();
 		int i=0;
 
@@ -100,8 +115,12 @@ public static void ListAll() {
 			}
 			Display.displayDetails(currentItem);
 	}
+	}
 	
 public static void findBySurname() {
+	if(table.isEmpty()) {
+		JOptionPane.showMessageDialog(null, "No records in the System");
+	}else {
 		
 		String sName = JOptionPane.showInputDialog("Search for surname: ");
 		boolean found = false;
@@ -123,11 +142,13 @@ public static void findBySurname() {
 			 JOptionPane.showMessageDialog(null, "Surname  " + sName + " found.");
 		 else
 			 JOptionPane.showMessageDialog(null, "Surname " + sName + " not found.");
-			
+	}
 	}
 	
 	public static void findByAccount() {
-		
+		if(table.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "No records in the System");
+		}else {
 		String accNum = JOptionPane.showInputDialog("Search for account number: ");
 		boolean found = false;
 	
@@ -143,7 +164,8 @@ public static void findBySurname() {
 				 balanceTextField.setText(entry.getValue().getBalance()+"");
 				 overdraftTextField.setText(entry.getValue().getOverdraft()+"");						
 				 
-			 }			 
+			 }		
+			 
 		 }
 		 if(found)
 			 JOptionPane.showMessageDialog(null, "Account number " + accNum + " found.");
@@ -151,5 +173,5 @@ public static void findBySurname() {
 			 JOptionPane.showMessageDialog(null, "Account number " + accNum + " not found.");
 		
 	}
-
+	}
 }

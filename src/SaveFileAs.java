@@ -8,7 +8,9 @@ import javax.swing.JOptionPane;
 public class SaveFileAs extends BankFileFunctions{
 
 	public static void saveToFileAs() {
-
+		if(table.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "No records in the System");
+		}else {
 		fc = new JFileChooser();
 
 		int returnVal = fc.showSaveDialog(null);
@@ -30,6 +32,6 @@ public class SaveFileAs extends BankFileFunctions{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		}
 	}
 }
